@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Set</title>
+</head>
+<body>
+    <script>
+        var arr = [3, 2, 6, 3, 9, 6, 2, 1, 344]
+        // const mySet = new Set(...arr)
+        // console.log(mySet)
+        // console.log(typeof mySet) // Object
+
+        // 创建一个函数来对数组进行去重操作
+        function unique(arr) {
+            return new Set(arr)
+        }
+        console.log( unique(arr) )
+    </script>
+</body>
+</html>

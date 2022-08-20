@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>== 和 === 的区别</title>
+</head>
+<body>
+    <script>
+        /* 数据类型转换并没有改变原来的值，隐式的调用了 valueOf() */
+        var a = "2"
+        if (Number(a) == 2) console.log(typeof a) // string
+
+        console.log([1,2] == "1,2") // true
+        console.log(null == undefined) // true
+        console.log(NaN == NaN) // false
+    </script>
+</body>
+</html>

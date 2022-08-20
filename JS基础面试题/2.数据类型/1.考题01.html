@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型考题</title>
+</head>
+<body>
+    <script>
+        /* 布尔值 */
+        console.log(typeof true) // boolean
+        console.log(true) // true
+
+        /* 数字加上布尔值会变为数字 */
+        console.log(typeof (true + 1)) // number
+        console.log(true + 1) // 2
+
+        /* 数字加上 undefined */
+        console.log(undefined + 2) // NaN
+        console.log(typeof (undefined + 2)) // number
+        console.log("**************************************")
+
+        /* 数字加上 null */
+        console.log(null + 2) // 2
+        console.log(typeof (null + 2)) // number
+        console.log("**************************************")
+
+        /* 任何字符串加上其他类型都会变成字符串 */
+        console.log("a" + 2 ) // a2
+        console.log(typeof ("a" + 2) ) // string
+        console.log(typeof ("a" + undefined) ) // string
+        console.log(typeof ("a" + null) ) // string
+        console.log("a" + null) // anull
+        console.log("----------------------------------------")
+
+        /* null 的类型 */
+        console.log(typeof null) // object
+        console.log(Number(null)) // 0，null 转换为数字就是 0
+        console.log(Number("a")) // NaN
+        console.log(Number("1000")) // 1000
+        console.log(Number(undefined)) // NaN
+
+    </script>
+</body>
+</html>

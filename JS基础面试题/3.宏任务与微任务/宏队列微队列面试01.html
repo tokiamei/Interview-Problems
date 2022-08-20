@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宏队列微队列面试01</title>
+</head>
+<body>
+  <script>
+    setTimeout(() => {
+     console.log('timemout1'); 
+     Promise.resolve(5).then(
+      value => console.log('成功了5')
+     )
+    });
+
+    setTimeout(() => {
+     console.log('timeout2'); 
+    });
+
+    Promise.resolve(3).then(
+      value => console.log('成功了3')
+    )
+    Promise.resolve(4).then(
+      value => console.log('成功了4')
+    )
+  </script>
+</body>
+</html>

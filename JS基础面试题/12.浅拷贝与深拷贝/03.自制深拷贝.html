@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自制深拷贝</title>
+</head>
+<body>
+    <script>
+        /* 要用到递归 */
+        /* function deepCopy(obj) {
+            if ( Array.isArray(obj) ) {
+                var newObj = []
+            } else {
+                var newObj = {}
+            }
+            for (item in obj) {
+                if (typeof obj[item] === "object") {
+                    newObj[item] = deepCopy(obj[item])
+                } else {
+                    newObj[item] = obj[item]
+                }
+            }
+            // const newObj = 1
+            return newObj
+        }
+        // const arr = { name: "222"}
+        const arr = [2, 2, 4, 5, 2, "ss", { name: "222", a: { age: 30, x: [3, 2, 4, 5] }} ]
+        const newObj = deepCopy(arr)
+        arr[6].name = 100000
+        arr[6].a.age = 100000
+        arr[6].a.x[2] = "+++++++++++++++++"
+
+        console.log(arr, newObj) */
+
+
+        /* 练习 +++++++++++++++++++++++ */
+        function deepCopy(obj) {
+            if (Array.isArray(obj)) {
+                var newObj = []
+            } else {
+                var newObj = {}
+            }
+            for (key in obj) {
+                if (typeof obj[key] === 'object') {
+                    // 如果 key 对应的值是对象，就让这个值再走一遍流程
+                    newObj[key] = deepCopy(obj[key])
+                } else {
+                    newObj[key] = obj[key]
+                }
+            }
+            return newObj
+        }
+        const arr = [2, 2, 4, 5, 2, "ss", { name: "222", a: { age: 30, x: [3, 2, 4, 5] }} ]
+        const newObj = deepCopy(arr)
+        arr[6].name = 100000
+        arr[6].a.age = 100000
+        arr[6].a.x[2] = "+++++++++++++++++"
+        console.log(arr, newObj)
+    </script>
+</body>
+</html>

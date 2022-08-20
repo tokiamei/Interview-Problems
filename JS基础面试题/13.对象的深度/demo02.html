@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getDeep(obj) {
+        var res = 1;
+        (function myDeep(obj, num) {
+          if (typeof obj === "object") {
+            for (var key in obj) {
+              if (typeof obj[key] === "object") {
+                myDeep(obj[key], num + 1);
+              } else {
+                res = res < num + 1 ? num + 1 : res;
+              }
+            }
+          } else {
+            res = res > num ? res : num;
+          }
+        })(obj, 1);
+        return res;
+      }
+
+    //   const obj = { name: '米斯蒂克', area: 'seer', hobby: 'game' }
+    var obj = {
+        a:{
+            b:{
+                x:'a'
+            }
+        },
+        b:{
+            b:{
+                c:{
+                    x:'x',
+                    arr:[1,2,3],
+                }
+            }
+        },
+        
+    }
+      console.log(getDeep(obj));
+    </script>
+  </body>
+</html>

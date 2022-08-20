@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findDeep(obj) {
+            // 初始深度，一开始对象深度为 1
+            let res = 1;
+            (function eachDeep(obj, num) {
+                // 如果数组为空，则直接返回 num
+                if (Object.keys(obj).length === 0) {
+                    console.log('xxxxxxxxxxxxxx');
+                    res = num
+                }
+                      // 这里计算每一个内部对象的深度
+                  for (key in obj) {
+                      if (typeof obj[key] === 'object') {
+                          // 再去找这个对象的深度，递归
+                          eachDeep(obj[key], num + 1)
+                      } else {
+                        console.log('--------');
+                        // res = res > num ? res : num 
+                        res = res < num ? num : res
+                      }
+                  }
+                /* } else {
+                    res = res > num ? res : num
+                } */
+            })(obj, res)
+            return res
+        }
+
+        // const obj = { name: '米斯蒂克', area: 'seer', hobby: { play: 'game' } }
+        // const obj = { name: '米斯蒂克',  hobby: { play: 'game' }, area: 'seer' }
+        const obj = { name: '米斯蒂克',  hobby: [1, 2, 3, [3, 5, 3, { a: 1 , x: {b:2, y: {x: 1}}}]], area: 'seer' }
+        // const obj = { name: '米斯蒂克', area: 'seer', hobby: 'game' }
+        console.log(findDeep(obj));
+    </script>
+</body>
+</html>
